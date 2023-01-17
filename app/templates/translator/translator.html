@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3 row">
+            <div class="col-5">
+                <div class="mb-3">
+                    {{ form.lang_from }}
+                </div>
+                <div class="mb-3">
+                    {{ form.text }}
+                </div>
+            </div>
+            <input type="submit" class="col fs-1 btn" value="⮂"/>
+            <div class="col-5">
+                <div class="mb-3">
+                    {{ form.lang_to }}
+                </div>
+                <div class="mb-3">
+                    <textarea cols="40" rows="5" class="form-control" readonly>{{ translate_text }}</textarea>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Перевести"/>
+    </form>
+</div>
+
+{% endblock %}
